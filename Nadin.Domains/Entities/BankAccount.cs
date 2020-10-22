@@ -9,9 +9,11 @@ namespace Nadin.Domains.Entities
 	{
 		public Guid Id { get; set; }
 
-		public string AccountId { get; set; }
+		public Guid AccountId { get; set; }
 
 		public BankAccountType AccountType { get; set; }
+
+		public decimal Balance { get; set; }
 
 		public Guid BankId { get; set; }
 

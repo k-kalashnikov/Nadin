@@ -3,15 +3,17 @@ using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using Nadin.Persistence;
 
 namespace Nadin.Persistence.Migrations
 {
     [DbContext(typeof(ApplicationDbContext))]
-    partial class ApplicationDbContextModelSnapshot : ModelSnapshot
+    [Migration("20201022222028_Update_Bank_Account")]
+    partial class Update_Bank_Account
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder
@@ -179,9 +181,6 @@ namespace Nadin.Persistence.Migrations
 
                     b.Property<int>("AccountType")
                         .HasColumnType("int");
-
-                    b.Property<decimal>("Balance")
-                        .HasColumnType("decimal(18,2)");
 
                     b.Property<Guid>("BankClientId")
                         .HasColumnType("uniqueidentifier");
