@@ -3,12 +3,14 @@ using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using Nadin.Web.Models;
 
 namespace Nadin.Web.Controllers
 {
+	[Authorize]
 	public class HomeController : Controller
 	{
 		private readonly ILogger<HomeController> _logger;
@@ -19,11 +21,6 @@ namespace Nadin.Web.Controllers
 		}
 
 		public IActionResult Index()
-		{
-			return View();
-		}
-
-		public IActionResult Privacy()
 		{
 			return View();
 		}

@@ -33,8 +33,9 @@ namespace Nadin.Web
 				.AddIdentity<Nadin.Domains.Entities.User, IdentityRole<Guid>>()
 				.AddEntityFrameworkStores<ApplicationDbContext>();
 
-			services.AddControllersWithViews();
-			services.AddRazorPages();
+			services
+				.AddControllersWithViews()
+				.AddRazorRuntimeCompilation();
 		}
 
 		// This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -63,7 +64,6 @@ namespace Nadin.Web
 				endpoints.MapControllerRoute(
 					name: "default",
 					pattern: "{controller=Home}/{action=Index}/{id?}");
-				endpoints.MapRazorPages();
 			});
 		}
 	}
