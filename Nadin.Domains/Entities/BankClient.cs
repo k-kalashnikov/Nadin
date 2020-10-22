@@ -2,10 +2,12 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace Nadin.Common.Entities
+namespace Nadin.Domains.Entities
 {
 	public class BankClient
 	{
+		public Guid Id { get; set; }
+
 		public string FirstName { get; set; }
 
 		public string SecondName { get; set; }
@@ -13,7 +15,5 @@ namespace Nadin.Common.Entities
 		public string LastName { get; set; }
 
 		public ICollection<BankAccount> Accounts { get; set; }
-
-		public ICollection<Bank> Banks { get; set; }
 	}
 }

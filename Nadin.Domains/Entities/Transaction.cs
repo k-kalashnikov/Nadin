@@ -2,13 +2,11 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace Nadin.Common.Entities
+namespace Nadin.Domains.Entities
 {
 	public class Transaction
 	{
-		public BankAccount From { get; set; }
-
-		public BankAccount To { get; set; }
+		public Guid Id { get; set; }
 
 		public long Number { get; set; }
 
@@ -18,6 +16,16 @@ namespace Nadin.Common.Entities
 
 		public DateTime TransactionDate { get; set; }
 
+		public Guid UserId { get; set; }
+
+		public Guid FromId { get; set; }
+
+		public Guid ToId { get; set; }
+
 		public User User { get; set; }
+
+		public BankAccount From { get; set; }
+
+		public BankAccount To { get; set; }
 	}
 }
