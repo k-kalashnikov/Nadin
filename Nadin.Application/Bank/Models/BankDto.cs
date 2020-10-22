@@ -1,11 +1,11 @@
-﻿using System;
+﻿using Nadin.Application.BankAccount.Models;
+using System;
 using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations.Schema;
 using System.Text;
 
-namespace Nadin.Domains.Entities
+namespace Nadin.Application.Bank.Models
 {
-	public class Bank
+	public class BankDto
 	{
 		public Guid Id { get; set; }
 
@@ -15,7 +15,6 @@ namespace Nadin.Domains.Entities
 
 		public double OutputFee { get; set; }
 
-		public ICollection<BankAccount> Accounts { get; set; }
-
+		public ICollection<BankAccountDto> Accounts { get; set; }
 	}
 }

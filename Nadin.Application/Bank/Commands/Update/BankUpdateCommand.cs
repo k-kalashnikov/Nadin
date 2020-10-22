@@ -1,11 +1,12 @@
-﻿using System;
+﻿using MediatR;
+using Nadin.Application.Bank.Models;
+using System;
 using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations.Schema;
 using System.Text;
 
-namespace Nadin.Domains.Entities
+namespace Nadin.Application.Bank.Commands
 {
-	public class Bank
+	public class BankUpdateCommand : IRequest<BankDto>
 	{
 		public Guid Id { get; set; }
 
@@ -14,8 +15,5 @@ namespace Nadin.Domains.Entities
 		public double InputFee { get; set; }
 
 		public double OutputFee { get; set; }
-
-		public ICollection<BankAccount> Accounts { get; set; }
-
 	}
 }

@@ -11,6 +11,7 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using Nadin.Persistence;
 
 namespace Nadin.Web
 {
@@ -27,10 +28,10 @@ namespace Nadin.Web
 		public void ConfigureServices(IServiceCollection services)
 		{
 
-			//services
-			//	.AddDbContext<ApplicationDbContext>(options => options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")))
-			//	.AddDefaultIdentity<IdentityUser>(options => options.SignIn.RequireConfirmedAccount = true)
-			//	.AddEntityFrameworkStores<ApplicationDbContext>();
+			services
+				.AddDbContext<ApplicationDbContext>(options => options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection")))
+				.AddIdentity<Nadin.Domains.Entities.User, IdentityRole<Guid>>()
+				.AddEntityFrameworkStores<ApplicationDbContext>();
 
 			services.AddControllersWithViews();
 			services.AddRazorPages();
