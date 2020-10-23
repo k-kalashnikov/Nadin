@@ -1,0 +1,62 @@
+﻿@model Nadin.Application.Transaction.Models.TransactionDto
+@{
+
+}
+
+<div class="row">
+	<div class="col-3">
+		Id
+	</div>
+	<div class="col-4">
+		@Model.Id
+	</div>
+</div>
+<div class="row">
+	<div class="col-3">
+		TransactionDate
+	</div>
+	<div class="col-4">
+		@Model.TransactionDate
+	</div>
+</div>
+<div class="row">
+	<div class="col-3">
+		Number
+	</div>
+	<div class="col-4">
+		@Model.Number
+	</div>
+</div>
+<div class="row">
+	<div class="col-3">
+		SystemFee
+	</div>
+	<div class="col-4">
+		@Model.SystemFee
+	</div>
+</div>
+<div class="row">
+	<div class="col-3">
+		BankFee
+	</div>
+	<div class="col-4">
+		@Model.BankFee
+	</div>
+</div>
+<div class="row">
+	<div class="col-3">
+		From
+	</div>
+	<div class="col-4">
+		@Model.From.AccountId @Model.From.AccountType
+	</div>
+</div>
+
+<div class="row">
+	<div class="col-3">
+		To
+	</div>
+	<div class="col-4">
+		@Model.To.AccountId @Model.To.AccountType
+	</div>
+</div>

@@ -21,14 +21,17 @@ namespace Nadin.Application.BankAccount.Commands
 		{
 			var model = await ContextDb.BankAccounts.FirstOrDefaultAsync(m => m.Id.Equals(request.Id));
 
+			Console.WriteLine(request.Id);
+
 			if (model is null) 
 			{
-				throw new Exception($"BankUpdateCommandHandler - bankAccount not found");
+				throw new Exception($"BankAccountUpdateCommandHandler - bankAccount not found");
 			}
 
 			model.BankClientId = request.BankClientId;
 			model.BankId = request.BankId;
 			model.AccountType = request.AccountType;
+			model.Balance = request.Balance;
 
 			ContextDb.BankAccounts.Update(model);
 			await ContextDb.SaveChangesAsync();

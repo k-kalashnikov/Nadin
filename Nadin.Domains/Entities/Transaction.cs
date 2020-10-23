@@ -8,11 +8,11 @@ namespace Nadin.Domains.Entities
 	{
 		public Guid Id { get; set; }
 
-		public long Number { get; set; }
+		public double Number { get; set; }
 
-		public long BankFee { get; set; }
+		public double BankFee { get; set; }
 
-		public long SystemFee { get; set; }
+		public double SystemFee { get; set; }
 
 		public DateTime TransactionDate { get; set; }
 

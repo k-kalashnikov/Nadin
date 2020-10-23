@@ -7,6 +7,7 @@ using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
+using Nadin.Application.Bank.Queries;
 using Nadin.Domains.Entities;
 using Nadin.Persistence;
 using Nadin.Web.Models;
@@ -114,6 +115,22 @@ namespace Nadin.Web.Controllers
             }
 
             return RedirectToAction(nameof(Index));
+        }
+
+        [HttpGet]
+        public async Task<IActionResult> Detail(Guid? id)
+        {
+            if (id == null)
+            {
+                return NotFound();
+            }
+
+            var model = await Mediator.Send(new GetByIdBankQuery()
+            {
+                Id = id.Value
+            });
+
+            return View(model);
         }
     }
 }

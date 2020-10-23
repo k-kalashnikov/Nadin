@@ -14,5 +14,7 @@ namespace Nadin.Application.BankAccount.Commands
 		public Guid BankClientId{ get; set; }
 
 		public Guid BankId{ get; set; }
+
+		public decimal Balance { get; set; }
 	}
 }

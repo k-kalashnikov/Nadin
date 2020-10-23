@@ -52,7 +52,8 @@ namespace Nadin.Web.Controllers
                 {
                     AccountType = model.AccountType,
                     BankClientId = model.BankClientId,
-                    BankId = model.BankId
+                    BankId = model.BankId,
+                    Balance = model.Balance
                 };
                 var result = await Mediator.Send(command);
                 return RedirectToAction(nameof(Index));
@@ -78,6 +79,7 @@ namespace Nadin.Web.Controllers
                 AccountType = model.AccountType,
                 BankClientId = model.BankClientId,
                 BankId = model.BankId,
+                Balance = model.Balance,
                 Id = model.Id,
                 PosibleBankClients = (await Mediator.Send(new Nadin.Application.BankClient.Queries.GetAllBankClientQuery())).ToList(),
                 PosibleBanks = (await Mediator.Send(new Nadin.Application.Bank.Queries.GetAllBanksQuery())).ToList()
@@ -95,6 +97,7 @@ namespace Nadin.Web.Controllers
                     AccountType = model.AccountType,
                     BankClientId = model.BankClientId,
                     BankId = model.BankId,
+                    Balance = model.Balance,
                     Id = model.Id
                 };
                 var result = await Mediator.Send(command);

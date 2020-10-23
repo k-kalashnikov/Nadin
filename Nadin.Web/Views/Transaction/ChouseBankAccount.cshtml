@@ -1,0 +1,45 @@
+﻿@model Nadin.Application.Bank.Models.BankDto
+@{
+	Layout = "";
+}
+
+<table class="table">
+	<thead>
+		<tr>
+			<th>
+				Id
+			</th>
+			<th>
+				AccountId
+			</th>
+			<th>
+				AccountType
+			</th>
+			<th></th>
+		</tr>
+	</thead>
+	<tbody>
+		@foreach (var item in Model.Accounts)
+		{
+			if (item.Id.Equals(ViewBag.FromId)) 
+			{
+				continue;
+			}
+
+			<tr>
+				<td>
+					@Html.DisplayFor(modelItem => item.Id)
+				</td>
+				<td>
+					@Html.DisplayFor(modelItem => item.AccountId)
+				</td>
+				<td>
+					@Html.DisplayFor(modelItem => item.AccountType)
+				</td>
+				<td>
+					<a onclick="chooseAccount(this)" data-account-id="@item.Id"  data-from-id="@ViewBag.FromId">Choose</a>
+				</td>
+			</tr>
+		}
+	</tbody>
+</table>

@@ -21,6 +21,9 @@ namespace Nadin.Web.Models
 		public BankAccountType AccountType { get; set; }
 
 		[Required]
+		public decimal Balance{ get; set; }
+
+		[Required]
 		public Guid BankClientId { get; set; }
 
 		[Required]
@@ -47,6 +50,9 @@ namespace Nadin.Web.Models
 
 		[Required]
 		public Guid BankClientId { get; set; }
+
+		[Required]
+		public decimal Balance { get; set; }
 
 		[Required]
 		public Guid BankId { get; set; }

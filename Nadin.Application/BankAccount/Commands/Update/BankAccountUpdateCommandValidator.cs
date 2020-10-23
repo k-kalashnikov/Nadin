@@ -13,6 +13,10 @@ namespace Nadin.Application.BankAccount.Commands
 			RuleFor(x => x.AccountType)
 				.NotNull();
 
+			RuleFor(x => x.Balance)
+				.GreaterThan(0)
+				.NotNull();
+
 			RuleFor(x => x.BankClientId)
 				.NotNull()
 				.NotEqual(Guid.Empty);

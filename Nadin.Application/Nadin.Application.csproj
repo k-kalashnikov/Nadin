@@ -16,9 +16,6 @@
 	</ItemGroup>
 
 	<ItemGroup>
-	  <Folder Include="Transaction\Commands\Create\" />
-	  <Folder Include="Transaction\Commands\Delete\" />
-	  <Folder Include="Transaction\Commands\Update\" />
 	  <Folder Include="User\Commands\Create\" />
 	  <Folder Include="User\Commands\Delete\" />
 	  <Folder Include="User\Commands\Update\" />
