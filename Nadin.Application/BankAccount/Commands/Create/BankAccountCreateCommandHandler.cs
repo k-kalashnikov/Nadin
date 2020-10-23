@@ -18,6 +18,7 @@ namespace Nadin.Application.BankAccount.Commands
 		{
 			var bankAccount = new Domains.Entities.BankAccount()
 			{
+				AccountId = Guid.NewGuid(),
 				AccountType = request.AccountType,
 				BankClientId = request.BankClientId,
 				BankId = request.BankId

@@ -36,22 +36,8 @@ namespace Nadin.Web.Controllers
         {
             var model = new BankAccountCreateViewModel()
             {
-                PosibleBankClients = await Context.BankClients.Select(m => new BankClientDto()
-                {
-                    FirstName = m.FirstName,
-                    Accounts = null,
-                    Id = m.Id,
-                    LastName = m.LastName,
-                    SecondName = m.SecondName
-                }).ToListAsync(),
-                PosibleBanks = await Context.Banks.Select(m => new BankDto()
-                {
-                    InputFee = m.InputFee,
-                    OutputFee = m.OutputFee,
-                    Accounts = null,
-                    Id = m.Id,
-                    Name = m.Name
-                }).ToListAsync()
+                PosibleBankClients = (await Mediator.Send(new Nadin.Application.BankClient.Queries.GetAllBankClientQuery())).ToList(),
+                PosibleBanks = (await Mediator.Send(new Nadin.Application.Bank.Queries.GetAllBanksQuery())).ToList()
             };
             return View(model);
         }
@@ -93,22 +79,8 @@ namespace Nadin.Web.Controllers
                 BankClientId = model.BankClientId,
                 BankId = model.BankId,
                 Id = model.Id,
-                PosibleBankClients = await Context.BankClients.Select(m => new BankClientDto()
-                {
-                    FirstName = m.FirstName,
-                    Accounts = null,
-                    Id = m.Id,
-                    LastName = m.LastName,
-                    SecondName = m.SecondName
-                }).ToListAsync(),
-                PosibleBanks = await Context.Banks.Select(m => new BankDto()
-                {
-                    InputFee = m.InputFee,
-                    OutputFee = m.OutputFee,
-                    Accounts = null,
-                    Id = m.Id,
-                    Name = m.Name
-                }).ToListAsync()
+                PosibleBankClients = (await Mediator.Send(new Nadin.Application.BankClient.Queries.GetAllBankClientQuery())).ToList(),
+                PosibleBanks = (await Mediator.Send(new Nadin.Application.Bank.Queries.GetAllBanksQuery())).ToList()
             }); ;
         }
 
@@ -120,28 +92,16 @@ namespace Nadin.Web.Controllers
             {
                 var command = new Nadin.Application.BankAccount.Commands.BankAccountUpdateCommand()
                 {
-
+                    AccountType = model.AccountType,
+                    BankClientId = model.BankClientId,
+                    BankId = model.BankId,
+                    Id = model.Id
                 };
-
                 var result = await Mediator.Send(command);
                 return RedirectToAction(nameof(Index));
             }
-            model.PosibleBankClients = await Context.BankClients.Select(m => new BankClientDto()
-            {
-                FirstName = m.FirstName,
-                Accounts = null,
-                Id = m.Id,
-                LastName = m.LastName,
-                SecondName = m.SecondName
-            }).ToListAsync();
-            model.PosibleBanks = await Context.Banks.Select(m => new BankDto()
-            {
-                InputFee = m.InputFee,
-                OutputFee = m.OutputFee,
-                Accounts = null,
-                Id = m.Id,
-                Name = m.Name
-            }).ToListAsync();
+            model.PosibleBankClients = (await Mediator.Send(new Nadin.Application.BankClient.Queries.GetAllBankClientQuery())).ToList();
+            model.PosibleBanks = (await Mediator.Send(new Nadin.Application.Bank.Queries.GetAllBanksQuery())).ToList();
             return View(model);
         }
 
